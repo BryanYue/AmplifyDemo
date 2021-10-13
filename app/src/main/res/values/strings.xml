@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">AmplifyDemo</string>
+
+    <string-array name="categories">
+        <item>Authentication</item>
+        <item>DataStore</item>
+        <item>Storage</item>
+        <item>API (GraphQL)</item>
+        <item>API (REST)</item>
+        <item>Analytics</item>
+        <item>Predictions</item>
+    </string-array>
+
+
+    <string-array name="auth">
+        <item>register-a-user</item>
+        <item>sign-in-a-user</item>
+        <item>user-attribute</item>
+        <item>devices</item>
+        <item>password-management</item>
+        <item>sign-out</item>
+        <item>access_credentials</item>
+    </string-array>
+
+
+    <string name="register_user">Amplify默认 CLI 流需要用户名、密码和有效的电子邮件 ID 作为注册用户的参数</string>
+    <string name="register_username">请输入注册用户名</string>
+    <string name="register_password">请输入注册密码</string>
+    <string name="register_email">请输入注册用户邮箱</string>
+    <string name="register_email_code">请输入邮箱验证码</string>
+    <string name="sendCode">发送验证码</string>
+    <string name="signUp">注册</string>
+    <string name="signIn">登陆</string>
+    <string name="signUpByCode">验证码注册</string>
+    <string name="remember_device">绑定设备</string>
+    <string name="forget_device">移除设备</string>
+    <string name="fetch_devices">获取设备</string>
+    <string name="existingPassword">请输入旧密码</string>
+    <string name="newPassword">请输入新密码</string>
+    <string name="resetPassword">重置密码</string>
+    <string name="updatePassword">更新密码</string>
+    <string name="signOut">退出</string>
+    <string name="signOutAllDevices">所有设备退出</string>
+</resources>

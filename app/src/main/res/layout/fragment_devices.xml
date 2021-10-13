@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.amplifydemo.ui.fragment.auth.AuthViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_remember_device"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/dp_15"
+            android:background="@color/teal_700"
+            android:gravity="center"
+            android:minHeight="40dp"
+            android:text="@string/remember_device"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_forget_device"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/dp_15"
+            android:background="@color/teal_700"
+            android:gravity="center"
+            android:minHeight="40dp"
+            android:text="@string/forget_device"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_fetch_devices"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/dp_15"
+            android:background="@color/teal_700"
+            android:gravity="center"
+            android:minHeight="40dp"
+            android:text="@string/fetch_devices"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_15"
+            android:text="@={viewmodel.message}"
+            android:textColor="@color/accent"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

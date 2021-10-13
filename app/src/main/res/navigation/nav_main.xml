@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/categoriesFragment">
+
+
+
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.example.amplifydemo.ui.fragment.categories.CategoriesFragment"
+        android:label="CategoriesFragment">
+
+        <action
+            android:id="@+id/action_categoriesFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_categoriesFragment_to_registerUserFragment"
+            app:destination="@id/registerUserFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_categoriesFragment_to_signUserfFragment"
+            app:destination="@id/signUserfFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_categoriesFragment_to_devicesFragment"
+            app:destination="@id/devicesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_categoriesFragment_to_passwordManagementFragment"
+            app:destination="@id/passwordManagementFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_categoriesFragment_to_signOutFragment"
+            app:destination="@id/signOutFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/registerUserFragment"
+        android:name="com.example.amplifydemo.ui.fragment.auth.RegisterUserFragment"
+        android:label="RegisterUserFragment">
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUserfFragment"
+        android:name="com.example.amplifydemo.ui.fragment.auth.SignUserfFragment"
+        android:label="SignUserfFragment">
+    </fragment>
+
+    <fragment
+        android:id="@+id/devicesFragment"
+        android:name="com.example.amplifydemo.ui.fragment.auth.DevicesFragment"
+        android:label="DevicesFragment">
+    </fragment>
+    <fragment
+        android:id="@+id/passwordManagementFragment"
+        android:name="com.example.amplifydemo.ui.fragment.auth.PasswordManagementFragment"
+        android:label="PasswordManagementFragment">
+    </fragment>
+
+    <fragment
+        android:id="@+id/signOutFragment"
+        android:name="com.example.amplifydemo.ui.fragment.auth.SignOutFragment"
+        android:label="SignOutFragment">
+    </fragment>
+</navigation>
