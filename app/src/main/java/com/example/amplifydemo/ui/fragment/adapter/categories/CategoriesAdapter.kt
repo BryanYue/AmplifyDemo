@@ -1,4 +1,4 @@
-package com.example.amplifydemo.ui.fragment.adapter
+package com.example.amplifydemo.ui.fragment.adapter.categories
 
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder

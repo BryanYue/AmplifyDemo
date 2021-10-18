@@ -3,7 +3,8 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
-    id'androidx.navigation.safeargs.kotlin'
+    id 'androidx.navigation.safeargs.kotlin'
+//    id 'com.amplifyframework.amplifytools'
 }
 
 android {
@@ -82,6 +83,7 @@ dependencies {
     implementation 'com.scwang.smart:refresh-header-classics:2.0.3'    //经典刷新头
     implementation 'com.scwang.smart:refresh-footer-classics:2.0.3'    //经典加载
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+    implementation 'com.drakeet.multitype:multitype:4.3.0'
     //dialog
     implementation "com.afollestad.material-dialogs:lifecycle:3.3.0"
     implementation "com.afollestad.material-dialogs:core:3.3.0"
@@ -90,11 +92,13 @@ dependencies {
     implementation "com.afollestad.material-dialogs:bottomsheets:3.3.0"
 
 
-
+    // Amplify
     // Amplify core dependency
     implementation 'com.amplifyframework:core:1.28.1'
     // Support for Java 8 features
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
     //  Authenticating
     implementation 'com.amplifyframework:aws-auth-cognito:1.28.1'
+    //  Datastore
+    implementation 'com.amplifyframework:aws-datastore:1.28.1'
 }

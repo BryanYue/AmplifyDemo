@@ -9,14 +9,12 @@ import com.amplifyframework.auth.AuthChannelEventName
 import com.amplifyframework.core.Amplify
 import com.amplifyframework.core.InitializationStatus
 import com.amplifyframework.hub.HubChannel
-import com.blankj.utilcode.util.ToastUtils
 import com.example.amplifydemo.R
 import com.example.amplifydemo.app.ext.init
-import com.example.amplifydemo.app.ext.nav
-import com.example.amplifydemo.app.ext.navigateAction
+import com.example.amplifydemo.app.util.ModelUtil
 import com.example.amplifydemo.base.BaseFragment
 import com.example.amplifydemo.databinding.FragmentRecyclerviewBinding
-import com.example.amplifydemo.ui.fragment.adapter.CategoriesAdapter
+import com.example.amplifydemo.ui.fragment.adapter.categories.CategoriesAdapter
 import kotlinx.android.synthetic.main.fragment_recyclerview.*
 import kotlin.collections.ArrayList
 
@@ -42,43 +40,10 @@ class CategoriesFragment : BaseFragment<CategoriesViewModel, FragmentRecyclervie
 
         categoriesAdapter.run {
             setOnItemClickListener { adapter, view, position ->
-                when(categoriesAdapter.getItem(position)){
-                    "Authentication"->{
-                        nav().navigateAction(
-                            R.id.action_categoriesFragment_to_categoriesFragment,
-                            Bundle().apply {
-                                putString("arrayId", R.array.auth.toString())
-                                putString("arrayName", "Authentication")
-                            })
-                    }
-                    "register-a-user"->{
-                        nav().navigateAction(
-                            R.id.action_categoriesFragment_to_registerUserFragment)
 
-                    }
+                ModelUtil.ItemClick(this@CategoriesFragment,mViewModel,categoriesAdapter.getItem(position))
 
-                    "sign-in-a-user"->{
-                        nav().navigateAction(
-                            R.id.action_categoriesFragment_to_signUserfFragment)
-                    }
 
-                    "devices"->{
-                        nav().navigateAction(
-                            R.id.action_categoriesFragment_to_devicesFragment)
-                    }
-                    "password-management"->{
-                        nav().navigateAction(
-                            R.id.action_categoriesFragment_to_passwordManagementFragment)
-                    }
-
-                    "sign-out"->{
-                        nav().navigateAction(
-                            R.id.action_categoriesFragment_to_signOutFragment)
-                    }
-                    else->{
-                        ToastUtils.showShort("该功能开发中")
-                    }
-                }
 
             }
         }
@@ -94,9 +59,13 @@ class CategoriesFragment : BaseFragment<CategoriesViewModel, FragmentRecyclervie
     override fun initData() {
 
         val arrayId = arguments?.getString("arrayId", null)
+        var data = arguments?.getStringArray("arrayData")?.toCollection(ArrayList())
         val arrayName = arguments?.getString("arrayName", null)
         if (TextUtils.isEmpty(arrayId)) {
-            val data: ArrayList<String> = resources.getStringArray(R.array.categories).toCollection(ArrayList())
+            if (data==null||data.isEmpty()){
+                 data = resources.getStringArray(R.array.categories).toCollection(ArrayList())
+            }
+
             categoriesAdapter.setNewInstance(data)
         } else {
             val data: ArrayList<String> = resources.getStringArray(arrayId!!.toInt()).toCollection(ArrayList())

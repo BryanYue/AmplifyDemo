@@ -19,9 +19,21 @@
         <item>devices</item>
         <item>password-management</item>
         <item>sign-out</item>
+        <item>user-attributes</item>
         <item>access_credentials</item>
     </string-array>
 
+
+
+    <string-array name="UserAttributes">
+        <item>获取当前用户属性</item>
+        <item>更新用户属性</item>
+    </string-array>
+
+    <string-array name="updateUserAttribute">
+        <item>获取当前用户属性</item>
+        <item>更新用户属性</item>
+    </string-array>
 
     <string name="register_user">Amplify默认 CLI 流需要用户名、密码和有效的电子邮件 ID 作为注册用户的参数</string>
     <string name="register_username">请输入注册用户名</string>
@@ -41,4 +53,5 @@
     <string name="updatePassword">更新密码</string>
     <string name="signOut">退出</string>
     <string name="signOutAllDevices">所有设备退出</string>
+    <string name="fetchUserAttributes">查询用户属性</string>
 </resources>
