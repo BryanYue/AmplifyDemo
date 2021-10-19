@@ -1,6 +1,6 @@
 {
   "auth": {
-    "amplifydemo22941124": {
+    "amplifydemocf2e6bb6": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -24,6 +24,12 @@
           "EMAIL"
         ]
       }
+    }
+  },
+  "storage": {
+    "amplifydemo": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
     }
   }
 }

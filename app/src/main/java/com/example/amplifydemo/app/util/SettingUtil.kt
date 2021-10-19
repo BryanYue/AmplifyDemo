@@ -41,4 +41,5 @@ object SettingUtil {
         states[0] = intArrayOf()
         return ColorStateList(states, colors)
     }
+
 }

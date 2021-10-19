@@ -1,9 +1,17 @@
 package com.example.amplifydemo.base
 
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -19,6 +27,7 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> :Fragment(
     lateinit var mDatabind: DB
 
     public val RC_READ_PHONE_STATE = 100
+    public val RC_EXTERNAL_STORAGE = 101
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -81,4 +90,9 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> :Fragment(
      fun dismissLoading() {
         dismissLoadingExt()
     }
+
+
+
+
+
 }

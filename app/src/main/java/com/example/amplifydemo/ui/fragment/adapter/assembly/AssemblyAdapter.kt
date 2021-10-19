@@ -10,7 +10,7 @@ class AssemblyAdapter : BaseMultiItemQuickAdapter<AssemblyEntity,BaseViewHolder>
 
 
     init {
-        addItemType(AssemblyEntity.TEXT_BUTTON, R.layout.item_text_button)
+        addItemType(AssemblyEntity.TEXT_BUTTON, R.layout.item_button)
         addItemType(AssemblyEntity.EditText, R.layout.item_edittext)
         addItemType(AssemblyEntity.TEXT_INFO, R.layout.item_text_info)
         addItemType(AssemblyEntity.TEXT_TITLE, R.layout.item_categories)
@@ -27,10 +27,10 @@ class AssemblyAdapter : BaseMultiItemQuickAdapter<AssemblyEntity,BaseViewHolder>
           AssemblyEntity.TEXT_BUTTON ->{
 
               item.content?.let {
-                  holder.setText(R.id.tv_button,it)
+                  holder.setText(R.id.button,it)
               }
 
-              addChildClickViewIds(R.id.tv_button)
+              addChildClickViewIds(R.id.button)
           }
           AssemblyEntity.EditText ->{
               item.hint?.let {

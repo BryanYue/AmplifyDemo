@@ -8,12 +8,12 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 29
 
     defaultConfig {
         applicationId "com.example.amplifydemo"
         minSdk 21
-        targetSdk 31
+        targetSdk 29
         versionCode 1
         versionName "1.0"
 
@@ -92,13 +92,15 @@ dependencies {
     implementation "com.afollestad.material-dialogs:bottomsheets:3.3.0"
 
 
-    // Amplify
-    // Amplify core dependency
+    //  Amplify
+    //  Amplify core dependency
     implementation 'com.amplifyframework:core:1.28.1'
-    // Support for Java 8 features
+    //  Support for Java 8 features
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
     //  Authenticating
     implementation 'com.amplifyframework:aws-auth-cognito:1.28.1'
     //  Datastore
     implementation 'com.amplifyframework:aws-datastore:1.28.1'
+    //  Storage
+    implementation 'com.amplifyframework:aws-storage-s3:1.28.1'
 }

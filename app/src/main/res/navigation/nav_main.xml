@@ -62,6 +62,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_categoriesFragment_to_storageragment"
+            app:destination="@id/storageragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
 
@@ -94,7 +101,11 @@
         android:name="com.example.amplifydemo.ui.fragment.auth.SignOutFragment"
         android:label="SignOutFragment">
     </fragment>
-
+    <fragment
+        android:id="@+id/storageragment"
+        android:name="com.example.amplifydemo.ui.fragment.categories.Storageragment"
+        android:label="Storageragment">
+    </fragment>
     <fragment
         android:id="@+id/assemblyFragment"
         android:name="com.example.amplifydemo.ui.fragment.assembly.AssemblyFragment"

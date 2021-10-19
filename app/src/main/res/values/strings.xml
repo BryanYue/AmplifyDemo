@@ -12,6 +12,15 @@
     </string-array>
 
 
+    <string-array name="Storage">
+        <item>uploadInputStream</item>
+        <item>uploadFile</item>
+        <item>downloadFile</item>
+        <item>track-download-progress</item>
+        <item>storage-list</item>
+        <item>storage-remove</item>
+    </string-array>
+
     <string-array name="auth">
         <item>register-a-user</item>
         <item>sign-in-a-user</item>
@@ -23,8 +32,6 @@
         <item>access_credentials</item>
     </string-array>
 
-
-
     <string-array name="UserAttributes">
         <item>获取当前用户属性</item>
         <item>更新用户属性</item>
@@ -34,6 +41,12 @@
         <item>获取当前用户属性</item>
         <item>更新用户属性</item>
     </string-array>
+
+
+
+
+
+
 
     <string name="register_user">Amplify默认 CLI 流需要用户名、密码和有效的电子邮件 ID 作为注册用户的参数</string>
     <string name="register_username">请输入注册用户名</string>

@@ -14,6 +14,7 @@ import com.example.amplifydemo.app.ext.init
 import com.example.amplifydemo.app.util.ModelUtil
 import com.example.amplifydemo.base.BaseFragment
 import com.example.amplifydemo.databinding.FragmentRecyclerviewBinding
+import com.example.amplifydemo.ui.fragment.adapter.StorageAdapter
 import com.example.amplifydemo.ui.fragment.adapter.categories.CategoriesAdapter
 import kotlinx.android.synthetic.main.fragment_recyclerview.*
 import kotlin.collections.ArrayList
@@ -21,6 +22,7 @@ import kotlin.collections.ArrayList
 class CategoriesFragment : BaseFragment<CategoriesViewModel, FragmentRecyclerviewBinding>() {
 
     private val categoriesAdapter: CategoriesAdapter by lazy { CategoriesAdapter(arrayListOf()) }
+    private val storageAdapter: StorageAdapter by lazy { StorageAdapter(arrayListOf()) }
 
     override fun layoutId(): Int {
         return R.layout.fragment_recyclerview
@@ -59,13 +61,13 @@ class CategoriesFragment : BaseFragment<CategoriesViewModel, FragmentRecyclervie
     override fun initData() {
 
         val arrayId = arguments?.getString("arrayId", null)
+        val dataId = arguments?.getString("dataId", null)
         var data = arguments?.getStringArray("arrayData")?.toCollection(ArrayList())
         val arrayName = arguments?.getString("arrayName", null)
         if (TextUtils.isEmpty(arrayId)) {
             if (data==null||data.isEmpty()){
                  data = resources.getStringArray(R.array.categories).toCollection(ArrayList())
             }
-
             categoriesAdapter.setNewInstance(data)
         } else {
             val data: ArrayList<String> = resources.getStringArray(arrayId!!.toInt()).toCollection(ArrayList())
@@ -93,7 +95,10 @@ class CategoriesFragment : BaseFragment<CategoriesViewModel, FragmentRecyclervie
                             }
                         }
                     }
+                    "Storage"->{
 
+
+                    }
                     else -> {
 
                     }
