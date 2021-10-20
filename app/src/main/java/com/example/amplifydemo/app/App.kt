@@ -8,11 +8,14 @@ import com.amplifyframework.core.Amplify
 import com.amplifyframework.storage.s3.AWSS3StoragePlugin
 
 class App : MultiDexApplication(){
+    companion object {
+        lateinit var instance: App
 
+    }
 
     override fun onCreate() {
         super.onCreate()
-
+        instance = this
         initAmplify()
     }
 

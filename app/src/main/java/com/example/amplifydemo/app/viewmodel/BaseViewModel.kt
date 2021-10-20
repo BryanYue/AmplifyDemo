@@ -15,4 +15,13 @@ open class BaseViewModel :ViewModel(){
         //隐藏
         val dismissDialog by lazy { EventLiveData<Boolean>() }
     }
+
+
+    fun showDialog(){
+        loadingChange.showDialog.value="Loading..."
+    }
+
+    fun dismissDialog(){
+        loadingChange.dismissDialog.postValue(true)
+    }
 }

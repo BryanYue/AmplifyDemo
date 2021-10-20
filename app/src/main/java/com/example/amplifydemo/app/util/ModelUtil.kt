@@ -155,7 +155,7 @@ object ModelUtil {
                     })
             }
 
-            "uploadInputStream","uploadFile","downloadFile","track-download-progress"->{
+            "uploadInputStream","uploadFile"->{
                 fragment.nav().navigateAction(
                     R.id.action_categoriesFragment_to_assemblyFragment,
                     Bundle().apply {
@@ -164,7 +164,7 @@ object ModelUtil {
                     })
             }
 
-            "storage-list","storage-remove"->{
+            "storage-list","storage-remove","track-download-progress","downloadFile"->{
                 fragment.nav().navigateAction(
                     R.id.action_categoriesFragment_to_storageragment,
                     Bundle().apply {
@@ -172,18 +172,15 @@ object ModelUtil {
                         putString("arrayName", "Storage")
                     })
             }
-            "Storage uploadInputStream"->{
 
-            }
-            "Storage uploadFile"->{
+            "Storage uploadFile", "Storage uploadInputStream"->{
                 val model: AssemblyViewModel = viewModel as AssemblyViewModel
                 val assemblyFragment: AssemblyFragment = fragment as AssemblyFragment
                 model.openFileManage(assemblyFragment)
             }
             "updateUserAttributes ADDRESS","updateUserAttributes BIRTHDATE"->{
                 val model: AssemblyViewModel = viewModel as AssemblyViewModel
-                val assemblyFragment: AssemblyFragment = fragment as AssemblyFragment
-                model.updateUserAttributes(assemblyFragment,action)
+                model.updateUserAttributes(action)
             }
             else -> {
                 ToastUtils.showShort("该功能开发中")

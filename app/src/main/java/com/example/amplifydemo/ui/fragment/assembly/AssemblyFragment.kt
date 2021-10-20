@@ -2,28 +2,24 @@ package com.example.amplifydemo.ui.fragment.assembly
 
 import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
 import android.text.TextUtils
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+import androidx.databinding.Observable
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.blankj.utilcode.util.FileUtils
 import com.example.amplifydemo.R
+import com.example.amplifydemo.app.App
 import com.example.amplifydemo.app.ext.init
 import com.example.amplifydemo.app.util.FileUtil
 import com.example.amplifydemo.app.util.ModelUtil
 import com.example.amplifydemo.base.BaseFragment
 import com.example.amplifydemo.databinding.FragmentRecyclerviewBinding
-import com.example.amplifydemo.ui.fragment.adapter.assembly.AssemblyAdapter
+import com.example.amplifydemo.ui.adapter.assembly.AssemblyAdapter
 import kotlinx.android.synthetic.main.fragment_recyclerview.*
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
@@ -31,6 +27,9 @@ import java.io.File
 
 class AssemblyFragment : BaseFragment<AssemblyViewModel, FragmentRecyclerviewBinding>(),
     EasyPermissions.PermissionCallbacks {
+
+    var arrayName: String? = null
+    var dataId: String? = null
 
     val perms = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -78,15 +77,29 @@ class AssemblyFragment : BaseFragment<AssemblyViewModel, FragmentRecyclerviewBin
 
             }
         }
+
+        mViewModel.message.addOnPropertyChangedCallback(messageCallback())
     }
 
     override fun createObserver() {
 
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        mViewModel.message.removeOnPropertyChangedCallback(messageCallback())
+    }
+
+    inner class messageCallback : Observable.OnPropertyChangedCallback() {
+        override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
+            assemblyAdapter.notifyAction(dataId, mViewModel.message.get())
+        }
+
+    }
+
     override fun initData() {
-        val dataId = arguments?.getString("dataId", null)
-        val arrayName = arguments?.getString("arrayName", null)
+        dataId = arguments?.getString("dataId", null)
+        arrayName = arguments?.getString("arrayName", null)
 
 //        val data = arguments?.getStringArray("data")?.toCollection(ArrayList())
         if (!TextUtils.isEmpty(dataId)) {
@@ -96,7 +109,7 @@ class AssemblyFragment : BaseFragment<AssemblyViewModel, FragmentRecyclerviewBin
 
         when (dataId) {
             "获取当前用户属性" -> {
-                mViewModel.fetchUserAttributes(this)
+                mViewModel.fetchUserAttributes()
             }
         }
 
@@ -165,10 +178,24 @@ class AssemblyFragment : BaseFragment<AssemblyViewModel, FragmentRecyclerviewBin
 
         if (data != null && data.data != null) {
             context?.let {
-                val file: String? = FileUtil.getPath(it,data.data!!)
-                if (file != null) {
-                    mViewModel.uploadFile(this, file)
+                val file: File =
+                    File(FileUtil.getFileAbsolutePath(App.instance.applicationContext, data.data!!))
+
+                dataId?.let {
+                    when (it) {
+                        "uploadFile" -> {
+                            if (file != null) {
+                                mViewModel.uploadFile(file)
+                            }
+                        }
+                        "uploadInputStream" -> {
+                            if (file != null) {
+                                mViewModel.uploadInputStream(file)
+                            }
+                        }
+                    }
                 }
+
 
             }
 

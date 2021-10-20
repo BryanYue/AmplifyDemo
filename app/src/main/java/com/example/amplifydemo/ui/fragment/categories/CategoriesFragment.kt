@@ -14,8 +14,8 @@ import com.example.amplifydemo.app.ext.init
 import com.example.amplifydemo.app.util.ModelUtil
 import com.example.amplifydemo.base.BaseFragment
 import com.example.amplifydemo.databinding.FragmentRecyclerviewBinding
-import com.example.amplifydemo.ui.fragment.adapter.StorageAdapter
-import com.example.amplifydemo.ui.fragment.adapter.categories.CategoriesAdapter
+import com.example.amplifydemo.ui.adapter.storage.StorageAdapter
+import com.example.amplifydemo.ui.adapter.categories.CategoriesAdapter
 import kotlinx.android.synthetic.main.fragment_recyclerview.*
 import kotlin.collections.ArrayList
 

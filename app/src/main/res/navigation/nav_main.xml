@@ -103,7 +103,7 @@
     </fragment>
     <fragment
         android:id="@+id/storageragment"
-        android:name="com.example.amplifydemo.ui.fragment.categories.Storageragment"
+        android:name="com.example.amplifydemo.ui.fragment.storage.StorageFragment"
         android:label="Storageragment">
     </fragment>
     <fragment
